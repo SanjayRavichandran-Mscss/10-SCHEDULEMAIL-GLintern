@@ -1,0 +1,36 @@
+TASK - 10 : This task involves building a "ticket management system" with automated email notifications using Node.js, MySQL, and Nodemailer. 
+In this task there are Three Users  , 1) student_mentor , 2) System_Admin , 3) Lab_Admin.
+When a mentor raises a ticket, an email is sent to the system administrator with ticket details.
+The admin acknowledges the ticket, triggering an acknowledgment email back to the mentor. 
+If the ticket remains unacknowledged for a specified time(1 minute), an escalation email is sent to the lab admin. 
+The system uses dynamic HTML templates for emails, including newTicket, acknowledgement, and escalation, ensuring timely communication and issue tracking. 
+The code dynamically creates email transporters and handles database operations for seamless functionality.
+
+___________________________________________________________________________________________________________________________________________________________
+DATABASE NAME : scheduler
+Table name : ticket_raise
+___________________________________________________________________________________________________________________________________________________________
+
+Endpoint for Raise Ticket : http://localhost:7000/api/tickets/raise
+method :POST
+
+JSON FORMAT :
+ {
+  "mentor_name": "sanjay",
+  "issue": "mouse not working",
+  "description": "mouse not working in system number s66 ."
+}
+
+___________________________________________________________________________________________________________________________________________________________
+
+Endpoint for Ticket Acknowledgement : http://localhost:7000/api/tickets/acknowledge
+method : PUT
+
+JSON FORMAT :
+{
+    "ticket_id":24,
+    "acknowledgement":1
+}
+
+
+********************************************************************************************************
